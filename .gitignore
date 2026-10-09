@@ -1,0 +1,12 @@
+# Archivos que genera Visual Studio (no se suben a GitHub)
+.vs/
+bin/
+obj/
+*.user
+*.suo
+
+# Paquetes NuGet (Visual Studio los restaura al compilar)
+src/packages/
+
+# Configuración local del agente de IA
+.claude/settings.local.json
