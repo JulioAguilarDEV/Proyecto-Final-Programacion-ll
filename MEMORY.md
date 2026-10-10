@@ -9,9 +9,9 @@ empezar y lo actualiza al terminar cada tarea (ver `AGENTS.md`). Lo más recient
 |---|---|---|---|
 | FrmPrincipal (menú) | ✅ | ✅ navegación (sin BD) | Julio |
 | FrmDashboard (bienvenida) | ✅ | — (no lleva) | Julio |
-| FrmOptometrista | ✅ | ⏳ pendiente | Julio |
-| FrmExamenVisual | ✅ | ⏳ pendiente | Julio |
-| FrmReceta | ✅ | ⏳ pendiente | Julio |
+| FrmOptometrista | ✅ | ✅ probada con la BD | Julio |
+| FrmExamenVisual | ✅ | ✅ probada con la BD | Julio |
+| FrmReceta | ✅ | ✅ probada con la BD | Julio |
 | Sucursales | ⏳ | ⏳ | Docente + Grupo |
 | Usuarios, Clientes, Citas, Login | ⏳ | ⏳ | Diego |
 | Tipos de Producto, Productos Ópticos, Órdenes, Panel de Acceso | ⏳ | ⏳ | Luis |
@@ -35,8 +35,47 @@ empezar y lo actualiza al terminar cada tarea (ver `AGENTS.md`). Lo más recient
 - **Grids:** las columnas se definen en el diseño (`col{Campo}`, `DataPropertyName = {Campo}`);
   en la lógica se usa `AutoGenerateColumns = false`.
 - **Código:** estilo programador junior, comentado, en español.
+- **Conexiones (`App.config`):** activa solo `ConexionSQLServer` (Docker `sql_prog2a`, puerto
+  1433, BD `OpticaGrupo8`). `ConexionPostgreSQL` (Docker `postgres_progra2`) y
+  `ConexionSupabase` quedan comentadas: necesitan Npgsql y cambiar la capa Datos.
+- **Supabase:** la contraseña de la BD **no se sube** (el repo de GitHub es público): en el
+  repo queda `<CONTRASEÑA-DE-LA-BD>` y cada integrante la pone en su copia. La anon key no
+  sirve para conectarse desde ADO.NET. Probado el 2026-10-10: conecta directo
+  (`db.qdxlfblrocahnsviapwj.supabase.co`, solo IPv6) y por el pooler `aws-0-us-east-2`
+  (IPv4). La BD de Supabase **está vacía**: falta correr ahí los scripts
+  `*_PostgreSQL_OpticaGrupo8.sql`.
+- **Capas de Cliente y Cita:** las creó Julio solo para llenar los ComboBox de Exámenes
+  Visuales (son tablas de Diego). Diego debe usar esas clases y no crear otras.
+- **ComboBox:** la propiedad del `DisplayMember` (`NombreCompleto`, `Descripcion`) **no** lleva
+  `[Browsable(false)]`; con ese atributo el ComboBox muestra `Entidad.ClienteEntidad`.
 
 ## Historial
+
+### 2026-10-10
+- Se subió todo a GitHub (`main`): pantallas de Diego y Luis, scripts PostgreSQL para
+  Supabase y la lógica de las pantallas de Julio.
+- **Lógica de las pantallas de Julio:** capas Entidad/Datos/Negocio de Optometrista,
+  ExamenVisual y Receta (más Cliente y Cita para los ComboBox) y eventos de FrmOptometrista,
+  FrmExamenVisual y FrmReceta. `App.config` con 3 conexiones (solo SQL Server activa).
+  Probado contra `OpticaGrupo8` en Docker dentro de transacciones que se deshacen: 39
+  pruebas de capas y 55 de pantalla (botones reales, CellClick, ComboBox, validaciones,
+  UNIQUE, FK al eliminar). Después se regresó el IDENTITY de las tablas al código 5 para que
+  el siguiente registro sea el 6.
+- El DataGridView seleccionaba la primera fila al abrir (el `ClearSelection()` del Load no
+  basta): se agregó el evento `DataBindingComplete` con `ClearSelection()`
+  (`07_LOGICA_FORMULARIO.md`).
+- Se crearon `database/scripts/1_Script_Creacion_BD_PostgreSQL_OpticaGrupo8.sql` y
+  `database/data/2_Script_Datos_Prueba_PostgreSQL_OpticaGrupo8.sql`: copia 1 a 1 de los de
+  SQL Server (mismas tablas, campos y datos), listos para el SQL Editor de Supabase: sin
+  `CREATE DATABASE` ni `\c` (Supabase da error con `\c` y las tablas van en el esquema public
+  de la base del proyecto). Se probaron en Docker (postgres:18) enviando cada archivo como una
+  sola consulta: 12 tablas con 5 registros cada una. Los scripts de PostgreSQL anteriores se
+  dejaron igual.
+- En Supabase el script de creación daba `relation "public.Sucursal" does not exist`: Supabase
+  agrega `alter table "public"."Sucursal" enable row level security` con el nombre entre
+  comillas y PostgreSQL guardó la tabla como `sucursal`. Se pusieron en minúscula solo los
+  nombres de las tablas en `CREATE TABLE` y `REFERENCES` (la BD queda igual; los campos no
+  cambian). Probado en Docker con esos ALTER agregados: 12 tablas con RLS y los datos cargan.
 
 ### 2026-10-03
 - Se crearon los scripts de SQL Server a partir de los de PostgreSQL.
@@ -61,8 +100,9 @@ empezar y lo actualiza al terminar cada tarea (ver `AGENTS.md`). Lo más recient
 
 ## Pendientes
 
-- [ ] Lógica CRUD de Optometristas, Exámenes Visuales y Recetas (capas + eventos).
-- [ ] Probar con la base de datos (ejecutar los scripts de `database/`).
+- [x] Lógica CRUD de Optometristas, Exámenes Visuales y Recetas (capas + eventos).
+- [x] Probar con la base de datos (SQL Server en Docker, `sql_prog2a`).
 - [ ] Decidir si se migra a PostgreSQL/Supabase como pide el curso.
 - [ ] Conectar al menú las pantallas de los demás integrantes cuando existan.
-- [ ] Subir el proyecto a GitHub.
+- [x] Subir el proyecto a GitHub (`main`, 2026-10-10).
+- [ ] Correr en Supabase los scripts `*_PostgreSQL_OpticaGrupo8.sql` (la BD de Supabase está vacía).

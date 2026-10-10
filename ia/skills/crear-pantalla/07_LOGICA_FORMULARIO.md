@@ -25,6 +25,7 @@ la del `Load` en la sección del formulario (después de `this.Text = …`):
             this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             this.dgv{Tabla}.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv{Tabla}_CellClick);
+            this.dgv{Tabla}.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgv{Tabla}_DataBindingComplete);
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
@@ -321,6 +322,12 @@ namespace Presentacion
             }
         }
 
+        private void dgvOptometrista_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            // Al terminar de cargar los datos no debe quedar ninguna fila seleccionada
+            dgvOptometrista.ClearSelection();
+        }
+
         private void dgvOptometrista_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             // Verificar si el CheckBox está activado
@@ -443,6 +450,19 @@ namespace Presentacion
 | NumericUpDown decimal | `nudX.Value` | `nudX.Value = Convert.ToDecimal(fila.Cells["colX"].Value);` | `nudX.Value = 0;` |
 | NumericUpDown entero | `Convert.ToInt32(nudX.Value)` | `nudX.Value = Convert.ToDecimal(fila.Cells["colX"].Value);` | `nudX.Value = 0;` |
 | RadioButton estado | `string estado = "Inactivo"; if (rdbActivo.Checked) { estado = "Activo"; }` | `rdbActivo.Checked = estado == "Activo"; rdbInactivo.Checked = estado != "Activo";` | `rdbActivo.Checked = true;` |
+
+**Notas:**
+
+- `ClearSelection()` dentro del `Load` no basta: el DataGridView termina de enlazarse
+  cuando se muestra y selecciona la primera fila. Por eso cada pantalla lleva el evento
+  `dgv{Tabla}_DataBindingComplete` con `ClearSelection()` (sección 3).
+- Si la pantalla tiene **NumericUpDown**, el contenido del `CellClick` (desde
+  `DataGridViewRow filaSeleccionada = ...` hasta `tabControl1.SelectedTab = tabPage2;`)
+  va dentro de `try/catch`: si la BD trae un valor fuera de su `Minimum`/`Maximum`,
+  el NumericUpDown da error. Ejemplo en `src/Presentacion/FrmReceta.cs`.
+- ComboBox FK opcional: agregar el evento `KeyDown` para que Supr/Retroceso quiten la
+  selección (ejemplo `cboCita_KeyDown` en `src/Presentacion/FrmExamenVisual.cs`) y su
+  línea en el Designer: `this.cboX.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cboX_KeyDown);`
 
 ## 5. ComboBox de llaves foráneas
 

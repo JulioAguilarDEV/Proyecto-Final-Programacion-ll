@@ -1,7 +1,7 @@
 # AGENTS.md – Reglas para el agente de IA
 
-Instrucciones para cualquier agente de IA (Claude, Copilot, etc.) que trabaje en este
-proyecto. Leer completo antes de hacer cambios.
+Instrucciones para cualquier agente de IA que trabaje en este proyecto. Leer completo
+antes de hacer cambios.
 
 ## 1. El proyecto
 

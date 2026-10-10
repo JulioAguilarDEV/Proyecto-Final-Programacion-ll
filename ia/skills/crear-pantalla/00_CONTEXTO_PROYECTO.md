@@ -15,7 +15,7 @@
 | Framework | .NET Framework 4.8, Windows Forms, proyectos estilo antiguo (`packages.config`) |
 | Librerías | FontAwesome.Sharp 6.6.0 (IconButton, IconPictureBox), System.Data.SqlClient 4.9.1, System.Configuration.ConfigurationManager 10.0.12 |
 | Base de datos | SQL Server, BD `OpticaGrupo8`. Creación: `database/scripts/1_Script_Creacion_BD_SQLServer.sql`. Datos de prueba: `database/data/2_Script_Datos_Prueba_SQLServer.sql` (también están las versiones PostgreSQL) |
-| Conexión | `src/Presentacion/App.config` → cadena `ConexionSQLServer`; se lee en `src/Datos/ConexionBaseDatos.cs` con `MtdObtenerDatos()` |
+| Conexión | `src/Presentacion/App.config` → cadena `ConexionSQLServer` (SQL Server en Docker, contenedor `sql_prog2a`); se lee en `src/Datos/ConexionBaseDatos.cs` con `MtdObtenerDatos()`. Ahí mismo están comentadas `ConexionPostgreSQL` (Docker) y `ConexionSupabase` (necesitan Npgsql) |
 | Imágenes | `src/Presentacion/Resources/` → `Logo.png` (círculo con lentes, encabezado de las pantallas CRUD), `logoicono.png` (ícono del ojo, arriba del menú principal → recurso `LogoIcono`), `LogoTranslucido.png` (texto del logo sin el ojo al 25 %, Dashboard), `LogoOptica.png` (logo completo recortado, ya no se usa) y `logo_original.png` (original). Se usan con `global::Presentacion.Properties.Resources.Nombre` |
 | Exportar/Imprimir | `src/Presentacion/UtilidadesGrid.cs` → `MtdExportar(dgv, nombre)` y `MtdImprimir(dgv, titulo)` |
 | Diagramas | `docs/diagrams/` (conceptual y entidad-relación) |
@@ -52,9 +52,9 @@ agregarse a mano al `.csproj` de su capa o no se compila (cada archivo indica qu
 
 | Formulario | Estado | Sirve de ejemplo para |
 |---|---|---|
-| `FrmOptometrista` | solo diseño | TextBox, RadioButton Activo/Inactivo |
-| `FrmExamenVisual` | solo diseño | ComboBox de FK, FK opcional, fecha, multilínea, estado en ComboBox |
-| `FrmReceta` | solo diseño | NumericUpDown decimal/entero, columnas con formato N2/N1 |
+| `FrmOptometrista` | diseño + lógica | TextBox, RadioButton Activo/Inactivo, UNIQUE (colegiado) y FK al eliminar |
+| `FrmExamenVisual` | diseño + lógica | ComboBox de FK (Cliente, Optometrista, Cita), FK opcional (0 = NULL, Supr la quita), fecha, multilínea, estado en ComboBox |
+| `FrmReceta` | diseño + lógica | NumericUpDown decimal/entero (con try/catch en CellClick), columnas con formato N2/N1 |
 | `FrmDashboard` | solo diseño | Bienvenida: texto del logo translúcido (sin el ojo) + "Bienvenidos" (`03_DISENO_DASHBOARD.md`, Diseño A); se abre con el botón **Inicio** del menú |
 | `FrmPrincipal` | diseño + navegación | Ventana principal: menú lateral, barra de título y panel contenedor (`09_DISENO_MENU_PRINCIPAL.md`) |
 

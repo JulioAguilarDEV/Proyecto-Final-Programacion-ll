@@ -48,6 +48,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CitaEntidad.cs" />
+    <Compile Include="ClienteEntidad.cs" />
+    <Compile Include="ExamenVisualEntidad.cs" />
+    <Compile Include="OptometristaEntidad.cs" />
+    <Compile Include="RecetaEntidad.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

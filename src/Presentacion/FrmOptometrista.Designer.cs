@@ -201,6 +201,8 @@
             this.dgvOptometrista.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvOptometrista.Size = new System.Drawing.Size(1087, 420);
             this.dgvOptometrista.TabIndex = 0;
+            this.dgvOptometrista.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOptometrista_CellClick);
+            this.dgvOptometrista.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvOptometrista_DataBindingComplete);
             // 
             // colCodigoOptometrista
             // 
@@ -323,6 +325,7 @@
             this.chkSeleccionar.TabIndex = 0;
             this.chkSeleccionar.Text = "Seleccionar";
             this.chkSeleccionar.UseVisualStyleBackColor = true;
+            this.chkSeleccionar.CheckedChanged += new System.EventHandler(this.chkSeleccionar_CheckedChanged);
             // 
             // PanelDivisor2
             // 
@@ -684,6 +687,7 @@
             this.btnCerrar.Text = "Cerrar";
             this.btnCerrar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCerrar.UseVisualStyleBackColor = true;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // btnExportar
             // 
@@ -701,6 +705,7 @@
             this.btnExportar.Text = "Exportar";
             this.btnExportar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnExportar.UseVisualStyleBackColor = true;
+            this.btnExportar.Click += new System.EventHandler(this.btnExportar_Click);
             // 
             // btnImprimir
             // 
@@ -718,6 +723,7 @@
             this.btnImprimir.Text = "Imprimir";
             this.btnImprimir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnImprimir.UseVisualStyleBackColor = true;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
             // btnBuscar
             // 
@@ -734,6 +740,7 @@
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // btnLimpiarBusqueda
             // 
@@ -750,6 +757,7 @@
             this.btnLimpiarBusqueda.Text = "Limpiar";
             this.btnLimpiarBusqueda.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnLimpiarBusqueda.UseVisualStyleBackColor = true;
+            this.btnLimpiarBusqueda.Click += new System.EventHandler(this.btnLimpiarBusqueda_Click);
             // 
             // btnNuevo
             // 
@@ -766,6 +774,7 @@
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnNuevo.UseVisualStyleBackColor = true;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // btnGuardar
             // 
@@ -782,6 +791,7 @@
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // btnCancelar
             // 
@@ -798,6 +808,7 @@
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnEditar
             // 
@@ -814,6 +825,7 @@
             this.btnEditar.Text = "Editar";
             this.btnEditar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnEliminar
             // 
@@ -830,6 +842,7 @@
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnLimpiar
             // 
@@ -846,6 +859,7 @@
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // btnCerrarGestionar
             // 
@@ -863,6 +877,7 @@
             this.btnCerrarGestionar.Text = "Cerrar";
             this.btnCerrarGestionar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCerrarGestionar.UseVisualStyleBackColor = true;
+            this.btnCerrarGestionar.Click += new System.EventHandler(this.btnCerrarGestionar_Click);
             // 
             // FrmOptometrista
             // 
@@ -874,6 +889,7 @@
             this.Name = "FrmOptometrista";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Optometristas";
+            this.Load += new System.EventHandler(this.FrmOptometrista_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.PanelPrincipal.ResumeLayout(false);

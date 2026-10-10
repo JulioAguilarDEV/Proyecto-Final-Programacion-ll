@@ -123,23 +123,24 @@ namespace Entidad
 ## 3. Propiedad de solo lectura para ComboBox
 
 Si la tabla relacionada no tiene una columna "Nombre", agregar en **su Entidad** una
-propiedad de solo lectura con `[Browsable(false)]` (así no aparece en ningún DataGridView;
-requiere `using System.ComponentModel;`):
+propiedad de solo lectura (solo `get`).
+
+> ⚠️ **No** ponerle `[Browsable(false)]`: el ComboBox no encuentra un `DisplayMember`
+> "no browsable" y muestra `Entidad.ClienteEntidad` en lugar del nombre.
+> Tampoco sale en el DataGridView porque cada pantalla usa `AutoGenerateColumns = false`.
 
 ```csharp
         // =====================================================
         // PROPIEDAD DE SOLO LECTURA
         // Se usa para mostrar el texto en los ComboBox.
-        // [Browsable(false)] evita que aparezca en el DataGridView.
+        // No aparece en el DataGridView porque sus columnas son fijas (AutoGenerateColumns = false).
         // =====================================================
 
-        [Browsable(false)]
         public string NombreCompleto
         {
             get { return _nombres + " " + _apellidos; }
         }
 
-        [Browsable(false)]
         public string Descripcion
         {
             get { return "Examen #" + _codigoExamen + " - " + _fecha.ToString("dd/MM/yyyy"); }

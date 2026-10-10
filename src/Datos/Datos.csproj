@@ -49,6 +49,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConexionBaseDatos.cs" />
+    <Compile Include="CitaDatos.cs" />
+    <Compile Include="ClienteDatos.cs" />
+    <Compile Include="ExamenVisualDatos.cs" />
+    <Compile Include="OptometristaDatos.cs" />
+    <Compile Include="RecetaDatos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
