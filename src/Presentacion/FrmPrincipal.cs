@@ -137,17 +137,20 @@ namespace Presentacion
 
         private void btnUsuarios_Click(object sender, EventArgs e)
         {
-            MtdPantallaPendiente("Usuarios");
+            MtdResaltarBoton(btnUsuarios);
+            MtdAbrirFormulario(new FrmUsuarios(), "Usuarios");
         }
 
         private void btnClientes_Click(object sender, EventArgs e)
         {
-            MtdPantallaPendiente("Clientes");
+            MtdResaltarBoton(btnClientes);
+            MtdAbrirFormulario(new FrmClientes(), "Clientes");
         }
 
         private void btnCitas_Click(object sender, EventArgs e)
         {
-            MtdPantallaPendiente("Citas");
+            MtdResaltarBoton(btnCitas);
+            MtdAbrirFormulario(new FrmCitas(), "Citas");
         }
 
         private void btnOptometristas_Click(object sender, EventArgs e)
