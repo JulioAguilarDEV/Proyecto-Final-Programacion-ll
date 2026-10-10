@@ -116,8 +116,8 @@ namespace Presentacion
         // Mensaje para las pantallas que todavía no existen
         private void MtdPantallaPendiente(string nombrePantalla)
         {
-            MessageBox.Show("La pantalla de " + nombrePantalla + " todavía no está creada.", "En construcción",
-                MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //MessageBox.Show("La pantalla de " + nombrePantalla + " todavía no está creada.", "En construcción",
+            //    MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         // =====================================================
@@ -170,17 +170,24 @@ namespace Presentacion
 
         private void btnTiposProducto_Click(object sender, EventArgs e)
         {
+            MtdResaltarBoton(btnExamenes);
+            MtdAbrirFormulario(new FrmTiposDeProducto(), "Tipos de Producto");
             MtdPantallaPendiente("Tipos de Producto");
         }
 
         private void btnProductos_Click(object sender, EventArgs e)
         {
-            MtdPantallaPendiente("Productos Ópticos");
+            MtdResaltarBoton(btnExamenes);
+            MtdAbrirFormulario(new FrmProductos(), "Productos");
+            MtdPantallaPendiente("Tipos de Producto");
         }
 
         private void btnOrdenes_Click(object sender, EventArgs e)
         {
             MtdPantallaPendiente("Órdenes");
+            MtdResaltarBoton(btnExamenes);
+            MtdAbrirFormulario(new FrmOrdenes(), "Ordenes");
+            MtdPantallaPendiente("Tipos de Producto");
         }
 
         private void btnEntregas_Click(object sender, EventArgs e)

@@ -118,6 +118,7 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1137, 698);
             this.tabControl1.TabIndex = 0;
+            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // tabPage1
             // 
@@ -130,6 +131,7 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Consultar";
             this.tabPage1.UseVisualStyleBackColor = true;
+            this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
             // PanelPrincipal
             // 
@@ -149,6 +151,7 @@
             this.PanelPrincipal.Name = "PanelPrincipal";
             this.PanelPrincipal.Size = new System.Drawing.Size(1123, 665);
             this.PanelPrincipal.TabIndex = 0;
+            this.PanelPrincipal.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelPrincipal_Paint);
             // 
             // PanelCentral
             // 
@@ -160,6 +163,7 @@
             this.PanelCentral.Padding = new System.Windows.Forms.Padding(18, 0, 18, 0);
             this.PanelCentral.Size = new System.Drawing.Size(1123, 420);
             this.PanelCentral.TabIndex = 6;
+            this.PanelCentral.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelCentral_Paint);
             // 
             // dgvOptometrista
             // 
@@ -201,6 +205,7 @@
             this.dgvOptometrista.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvOptometrista.Size = new System.Drawing.Size(1087, 420);
             this.dgvOptometrista.TabIndex = 0;
+            this.dgvOptometrista.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOptometrista_CellContentClick);
             // 
             // colCodigoOptometrista
             // 
@@ -269,6 +274,7 @@
             this.PanelDivisor4.Name = "PanelDivisor4";
             this.PanelDivisor4.Size = new System.Drawing.Size(1123, 4);
             this.PanelDivisor4.TabIndex = 8;
+            this.PanelDivisor4.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelDivisor4_Paint);
             // 
             // PanelInferior
             // 
@@ -280,6 +286,7 @@
             this.PanelInferior.Name = "PanelInferior";
             this.PanelInferior.Size = new System.Drawing.Size(1123, 80);
             this.PanelInferior.TabIndex = 7;
+            this.PanelInferior.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelInferior_Paint);
             // 
             // lblTotalRegistros
             // 
@@ -290,6 +297,7 @@
             this.lblTotalRegistros.Size = new System.Drawing.Size(164, 25);
             this.lblTotalRegistros.TabIndex = 0;
             this.lblTotalRegistros.Text = "Total Registros: 0";
+            this.lblTotalRegistros.Click += new System.EventHandler(this.lblTotalRegistros_Click);
             // 
             // PanelDivisor3
             // 
@@ -299,6 +307,7 @@
             this.PanelDivisor3.Name = "PanelDivisor3";
             this.PanelDivisor3.Size = new System.Drawing.Size(1123, 4);
             this.PanelDivisor3.TabIndex = 5;
+            this.PanelDivisor3.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelDivisor3_Paint);
             // 
             // PanelCheck
             // 
@@ -311,6 +320,7 @@
             this.PanelCheck.Name = "PanelCheck";
             this.PanelCheck.Size = new System.Drawing.Size(1123, 59);
             this.PanelCheck.TabIndex = 4;
+            this.PanelCheck.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelCheck_Paint);
             // 
             // chkSeleccionar
             // 
@@ -323,6 +333,7 @@
             this.chkSeleccionar.TabIndex = 0;
             this.chkSeleccionar.Text = "Seleccionar";
             this.chkSeleccionar.UseVisualStyleBackColor = true;
+            this.chkSeleccionar.CheckedChanged += new System.EventHandler(this.chkSeleccionar_CheckedChanged);
             // 
             // PanelDivisor2
             // 
@@ -332,6 +343,7 @@
             this.PanelDivisor2.Name = "PanelDivisor2";
             this.PanelDivisor2.Size = new System.Drawing.Size(1123, 4);
             this.PanelDivisor2.TabIndex = 3;
+            this.PanelDivisor2.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelDivisor2_Paint);
             // 
             // PanelFiltros
             // 
@@ -345,6 +357,7 @@
             this.PanelFiltros.Name = "PanelFiltros";
             this.PanelFiltros.Size = new System.Drawing.Size(1123, 80);
             this.PanelFiltros.TabIndex = 2;
+            this.PanelFiltros.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelFiltros_Paint);
             // 
             // lblBuscar
             // 
@@ -355,6 +368,7 @@
             this.lblBuscar.Size = new System.Drawing.Size(175, 25);
             this.lblBuscar.TabIndex = 0;
             this.lblBuscar.Text = "Buscar por código:";
+            this.lblBuscar.Click += new System.EventHandler(this.lblBuscar_Click);
             // 
             // txtBuscador
             // 
@@ -365,6 +379,7 @@
             this.txtBuscador.Name = "txtBuscador";
             this.txtBuscador.Size = new System.Drawing.Size(267, 30);
             this.txtBuscador.TabIndex = 1;
+            this.txtBuscador.TextChanged += new System.EventHandler(this.txtBuscador_TextChanged);
             // 
             // PanelDivisor1
             // 
@@ -375,6 +390,7 @@
             this.PanelDivisor1.Name = "PanelDivisor1";
             this.PanelDivisor1.Size = new System.Drawing.Size(1123, 4);
             this.PanelDivisor1.TabIndex = 1;
+            this.PanelDivisor1.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelDivisor1_Paint);
             // 
             // PanelEncabezado
             // 
@@ -384,6 +400,7 @@
             this.PanelEncabezado.Name = "PanelEncabezado";
             this.PanelEncabezado.Size = new System.Drawing.Size(1123, 10);
             this.PanelEncabezado.TabIndex = 0;
+            this.PanelEncabezado.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelEncabezado_Paint);
             // 
             // tabPage2
             // 
@@ -396,6 +413,7 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Gestionar";
             this.tabPage2.UseVisualStyleBackColor = true;
+            this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
             // 
             // PanelPrincipalGestionar
             // 
@@ -413,6 +431,7 @@
             this.PanelPrincipalGestionar.Name = "PanelPrincipalGestionar";
             this.PanelPrincipalGestionar.Size = new System.Drawing.Size(1123, 665);
             this.PanelPrincipalGestionar.TabIndex = 0;
+            this.PanelPrincipalGestionar.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelPrincipalGestionar_Paint);
             // 
             // PanelCentralGestionar
             // 
@@ -424,6 +443,7 @@
             this.PanelCentralGestionar.Padding = new System.Windows.Forms.Padding(18, 8, 18, 8);
             this.PanelCentralGestionar.Size = new System.Drawing.Size(1123, 483);
             this.PanelCentralGestionar.TabIndex = 6;
+            this.PanelCentralGestionar.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelCentralGestionar_Paint);
             // 
             // grpDatos
             // 
@@ -453,6 +473,7 @@
             this.grpDatos.TabIndex = 0;
             this.grpDatos.TabStop = false;
             this.grpDatos.Text = "Datos del optometrista:";
+            this.grpDatos.Enter += new System.EventHandler(this.grpDatos_Enter);
             // 
             // lblCodigoOptometrista
             // 
@@ -463,6 +484,7 @@
             this.lblCodigoOptometrista.Size = new System.Drawing.Size(192, 25);
             this.lblCodigoOptometrista.TabIndex = 0;
             this.lblCodigoOptometrista.Text = "Código optometrista:";
+            this.lblCodigoOptometrista.Click += new System.EventHandler(this.lblCodigoOptometrista_Click);
             // 
             // txtCodigoOptometrista
             // 
@@ -474,6 +496,7 @@
             this.txtCodigoOptometrista.Size = new System.Drawing.Size(249, 30);
             this.txtCodigoOptometrista.TabIndex = 1;
             this.txtCodigoOptometrista.TabStop = false;
+            this.txtCodigoOptometrista.TextChanged += new System.EventHandler(this.txtCodigoOptometrista_TextChanged);
             // 
             // lblNombres
             // 
@@ -484,6 +507,7 @@
             this.lblNombres.Size = new System.Drawing.Size(97, 25);
             this.lblNombres.TabIndex = 2;
             this.lblNombres.Text = "Nombres:";
+            this.lblNombres.Click += new System.EventHandler(this.lblNombres_Click);
             // 
             // txtNombres
             // 
@@ -493,6 +517,7 @@
             this.txtNombres.Name = "txtNombres";
             this.txtNombres.Size = new System.Drawing.Size(249, 30);
             this.txtNombres.TabIndex = 3;
+            this.txtNombres.TextChanged += new System.EventHandler(this.txtNombres_TextChanged);
             // 
             // lblApellidos
             // 
@@ -503,6 +528,7 @@
             this.lblApellidos.Size = new System.Drawing.Size(98, 25);
             this.lblApellidos.TabIndex = 4;
             this.lblApellidos.Text = "Apellidos:";
+            this.lblApellidos.Click += new System.EventHandler(this.lblApellidos_Click);
             // 
             // txtApellidos
             // 
@@ -512,6 +538,7 @@
             this.txtApellidos.Name = "txtApellidos";
             this.txtApellidos.Size = new System.Drawing.Size(249, 30);
             this.txtApellidos.TabIndex = 5;
+            this.txtApellidos.TextChanged += new System.EventHandler(this.txtApellidos_TextChanged);
             // 
             // lblNumeroColegiado
             // 
@@ -522,6 +549,7 @@
             this.lblNumeroColegiado.Size = new System.Drawing.Size(203, 25);
             this.lblNumeroColegiado.TabIndex = 6;
             this.lblNumeroColegiado.Text = "Número de colegiado:";
+            this.lblNumeroColegiado.Click += new System.EventHandler(this.lblNumeroColegiado_Click);
             // 
             // txtNumeroColegiado
             // 
@@ -531,6 +559,7 @@
             this.txtNumeroColegiado.Name = "txtNumeroColegiado";
             this.txtNumeroColegiado.Size = new System.Drawing.Size(249, 30);
             this.txtNumeroColegiado.TabIndex = 7;
+            this.txtNumeroColegiado.TextChanged += new System.EventHandler(this.txtNumeroColegiado_TextChanged);
             // 
             // lblTelefono
             // 
@@ -541,6 +570,7 @@
             this.lblTelefono.Size = new System.Drawing.Size(95, 25);
             this.lblTelefono.TabIndex = 8;
             this.lblTelefono.Text = "Teléfono:";
+            this.lblTelefono.Click += new System.EventHandler(this.lblTelefono_Click);
             // 
             // txtTelefono
             // 
@@ -550,6 +580,7 @@
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(249, 30);
             this.txtTelefono.TabIndex = 9;
+            this.txtTelefono.TextChanged += new System.EventHandler(this.txtTelefono_TextChanged);
             // 
             // lblCorreo
             // 
@@ -560,6 +591,7 @@
             this.lblCorreo.Size = new System.Drawing.Size(78, 25);
             this.lblCorreo.TabIndex = 10;
             this.lblCorreo.Text = "Correo:";
+            this.lblCorreo.Click += new System.EventHandler(this.lblCorreo_Click);
             // 
             // txtCorreo
             // 
@@ -569,6 +601,7 @@
             this.txtCorreo.Name = "txtCorreo";
             this.txtCorreo.Size = new System.Drawing.Size(249, 30);
             this.txtCorreo.TabIndex = 11;
+            this.txtCorreo.TextChanged += new System.EventHandler(this.txtCorreo_TextChanged);
             // 
             // lblEstado
             // 
@@ -579,6 +612,7 @@
             this.lblEstado.Size = new System.Drawing.Size(79, 25);
             this.lblEstado.TabIndex = 12;
             this.lblEstado.Text = "Estado:";
+            this.lblEstado.Click += new System.EventHandler(this.lblEstado_Click);
             // 
             // rdbActivo
             // 
@@ -593,6 +627,7 @@
             this.rdbActivo.TabStop = true;
             this.rdbActivo.Text = "Activo";
             this.rdbActivo.UseVisualStyleBackColor = true;
+            this.rdbActivo.CheckedChanged += new System.EventHandler(this.rdbActivo_CheckedChanged);
             // 
             // rdbInactivo
             // 
@@ -605,6 +640,7 @@
             this.rdbInactivo.TabIndex = 14;
             this.rdbInactivo.Text = "Inactivo";
             this.rdbInactivo.UseVisualStyleBackColor = true;
+            this.rdbInactivo.CheckedChanged += new System.EventHandler(this.rdbInactivo_CheckedChanged);
             // 
             // PanelDivisor7
             // 
@@ -614,6 +650,7 @@
             this.PanelDivisor7.Name = "PanelDivisor7";
             this.PanelDivisor7.Size = new System.Drawing.Size(1123, 4);
             this.PanelDivisor7.TabIndex = 5;
+            this.PanelDivisor7.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelDivisor7_Paint);
             // 
             // PanelAcciones
             // 
@@ -629,6 +666,7 @@
             this.PanelAcciones.Name = "PanelAcciones";
             this.PanelAcciones.Size = new System.Drawing.Size(1123, 80);
             this.PanelAcciones.TabIndex = 4;
+            this.PanelAcciones.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelAcciones_Paint);
             // 
             // PanelDivisor6
             // 
@@ -638,6 +676,7 @@
             this.PanelDivisor6.Name = "PanelDivisor6";
             this.PanelDivisor6.Size = new System.Drawing.Size(1123, 4);
             this.PanelDivisor6.TabIndex = 3;
+            this.PanelDivisor6.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelDivisor6_Paint);
             // 
             // PanelInferiorGestionar
             // 
@@ -648,6 +687,7 @@
             this.PanelInferiorGestionar.Name = "PanelInferiorGestionar";
             this.PanelInferiorGestionar.Size = new System.Drawing.Size(1123, 80);
             this.PanelInferiorGestionar.TabIndex = 2;
+            this.PanelInferiorGestionar.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelInferiorGestionar_Paint);
             // 
             // PanelDivisor5
             // 
@@ -658,6 +698,7 @@
             this.PanelDivisor5.Name = "PanelDivisor5";
             this.PanelDivisor5.Size = new System.Drawing.Size(1123, 4);
             this.PanelDivisor5.TabIndex = 1;
+            this.PanelDivisor5.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelDivisor5_Paint);
             // 
             // PanelEncabezadoGestionar
             // 
@@ -667,6 +708,7 @@
             this.PanelEncabezadoGestionar.Name = "PanelEncabezadoGestionar";
             this.PanelEncabezadoGestionar.Size = new System.Drawing.Size(1123, 10);
             this.PanelEncabezadoGestionar.TabIndex = 0;
+            this.PanelEncabezadoGestionar.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelEncabezadoGestionar_Paint);
             // 
             // btnCerrar
             // 
@@ -684,6 +726,7 @@
             this.btnCerrar.Text = "Cerrar";
             this.btnCerrar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCerrar.UseVisualStyleBackColor = true;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // btnExportar
             // 
@@ -701,6 +744,7 @@
             this.btnExportar.Text = "Exportar";
             this.btnExportar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnExportar.UseVisualStyleBackColor = true;
+            this.btnExportar.Click += new System.EventHandler(this.btnExportar_Click);
             // 
             // btnImprimir
             // 
@@ -718,6 +762,7 @@
             this.btnImprimir.Text = "Imprimir";
             this.btnImprimir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnImprimir.UseVisualStyleBackColor = true;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
             // btnBuscar
             // 
@@ -734,6 +779,7 @@
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // btnLimpiarBusqueda
             // 
@@ -750,6 +796,7 @@
             this.btnLimpiarBusqueda.Text = "Limpiar";
             this.btnLimpiarBusqueda.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnLimpiarBusqueda.UseVisualStyleBackColor = true;
+            this.btnLimpiarBusqueda.Click += new System.EventHandler(this.btnLimpiarBusqueda_Click);
             // 
             // btnNuevo
             // 
@@ -766,6 +813,7 @@
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnNuevo.UseVisualStyleBackColor = true;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // btnGuardar
             // 
@@ -782,6 +830,7 @@
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // btnCancelar
             // 
@@ -798,6 +847,7 @@
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnEditar
             // 
@@ -814,6 +864,7 @@
             this.btnEditar.Text = "Editar";
             this.btnEditar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnEliminar
             // 
@@ -830,6 +881,7 @@
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnLimpiar
             // 
@@ -846,6 +898,7 @@
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // btnCerrarGestionar
             // 
@@ -863,6 +916,7 @@
             this.btnCerrarGestionar.Text = "Cerrar";
             this.btnCerrarGestionar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCerrarGestionar.UseVisualStyleBackColor = true;
+            this.btnCerrarGestionar.Click += new System.EventHandler(this.btnCerrarGestionar_Click);
             // 
             // FrmOptometrista
             // 
