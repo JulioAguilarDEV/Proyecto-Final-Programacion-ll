@@ -98,6 +98,18 @@
     <Compile Include="FrmOptometrista.Designer.cs">
       <DependentUpon>FrmOptometrista.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmOrdenes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmOrdenes.Designer.cs">
+      <DependentUpon>FrmOrdenes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmProductos.Designer.cs">
+      <DependentUpon>FrmProductos.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmReceta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,6 +121,12 @@
     </Compile>
     <Compile Include="FrmPrincipal.Designer.cs">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmTiposDeProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTiposDeProducto.Designer.cs">
+      <DependentUpon>FrmTiposDeProducto.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmUsuarios.cs">
       <SubType>Form</SubType>
@@ -134,11 +152,20 @@
     <EmbeddedResource Include="FrmOptometrista.resx">
       <DependentUpon>FrmOptometrista.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmOrdenes.resx">
+      <DependentUpon>FrmOrdenes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmPrincipal.resx">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmProductos.resx">
+      <DependentUpon>FrmProductos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmReceta.resx">
       <DependentUpon>FrmReceta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmTiposDeProducto.resx">
+      <DependentUpon>FrmTiposDeProducto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmUsuarios.resx">
       <DependentUpon>FrmUsuarios.cs</DependentUpon>

@@ -173,17 +173,20 @@ namespace Presentacion
 
         private void btnTiposProducto_Click(object sender, EventArgs e)
         {
-            MtdPantallaPendiente("Tipos de Producto");
+            MtdResaltarBoton(btnTiposProducto);
+            MtdAbrirFormulario(new FrmTiposDeProducto(), "Tipos de Producto");
         }
 
         private void btnProductos_Click(object sender, EventArgs e)
         {
-            MtdPantallaPendiente("Productos Ópticos");
+            MtdResaltarBoton(btnProductos);
+            MtdAbrirFormulario(new FrmProductos(), "Productos Ópticos");
         }
 
         private void btnOrdenes_Click(object sender, EventArgs e)
         {
-            MtdPantallaPendiente("Órdenes");
+            MtdResaltarBoton(btnOrdenes);
+            MtdAbrirFormulario(new FrmOrdenes(), "Órdenes");
         }
 
         private void btnEntregas_Click(object sender, EventArgs e)
