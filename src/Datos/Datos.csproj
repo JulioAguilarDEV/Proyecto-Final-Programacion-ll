@@ -54,6 +54,7 @@
     <Compile Include="ExamenVisualDatos.cs" />
     <Compile Include="OptometristaDatos.cs" />
     <Compile Include="RecetaDatos.cs" />
+    <Compile Include="TipoProductoDatos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

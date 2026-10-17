@@ -53,6 +53,7 @@
     <Compile Include="ExamenVisualEntidad.cs" />
     <Compile Include="OptometristaEntidad.cs" />
     <Compile Include="RecetaEntidad.cs" />
+    <Compile Include="TipoProductoEntidad.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
