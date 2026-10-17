@@ -195,10 +195,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Datos\Datos.csproj">
-      <Project>{bc0778b9-c29d-45b7-b96e-972dcf928a31}</Project>
-      <Name>Datos</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Entidad\Entidad.csproj">
       <Project>{638359e1-904f-460f-a574-9790b609c38f}</Project>
       <Name>Entidad</Name>

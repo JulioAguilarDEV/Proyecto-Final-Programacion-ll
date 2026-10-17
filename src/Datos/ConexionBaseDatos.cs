@@ -40,8 +40,8 @@ namespace Datos
         //Método que se encarga de mostrar la cadena de conexión cuand sea necesitado.
         public SqlConnection MtdObtenerDatos()
         {
-            //Devuelve un objeto de tipo SqlConnection con la cadena de conexión.
-            return new SqlConnection(_cadenaConexion);
+            string cadenaConexion = _cadenaConexion.TrimEnd(';') + ";Initial Catalog=OpticaGrupo8;";
+            return new SqlConnection(cadenaConexion);
         }
 
         /*Análisis del método: Se crea un método de tipo SqlConnection que devolverá un objeto igualmente de tipo SqlConnection

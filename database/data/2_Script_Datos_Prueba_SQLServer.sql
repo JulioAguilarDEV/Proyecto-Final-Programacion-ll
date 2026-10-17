@@ -96,3 +96,8 @@ INSERT INTO dbo.Entrega (CodigoOrden, FechaEntrega, NombreRecibe, Observaciones,
     (3, '2026-09-20', 'Ana Lucía García Monterroso', 'Sin observaciones', 'Entregada'),
     (4, '2026-10-03', 'Carlos Eduardo Méndez Ramírez', 'Pendiente de recoger', 'Pendiente'),
     (5, '2026-10-06', 'María Fernanda López Herrera', 'Se notificará por teléfono', 'Pendiente');
+
+
+
+    --Consulta Datos 
+    SELECT * FROM dbo.TipoProducto;
