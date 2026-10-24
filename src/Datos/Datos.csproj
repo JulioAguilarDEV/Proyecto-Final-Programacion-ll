@@ -53,7 +53,10 @@
     <Compile Include="ClienteDatos.cs" />
     <Compile Include="ExamenVisualDatos.cs" />
     <Compile Include="OptometristaDatos.cs" />
+    <Compile Include="ProductoOpticoDatos.cs" />
     <Compile Include="RecetaDatos.cs" />
+    <Compile Include="OrdenDatos.cs" />
+    <Compile Include="SucursalDatos.cs" />
     <Compile Include="TipoProductoDatos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

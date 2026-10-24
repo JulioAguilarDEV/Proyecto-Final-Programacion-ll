@@ -51,6 +51,50 @@ empezar y lo actualiza al terminar cada tarea (ver `AGENTS.md`). Lo más recient
 
 ## Historial
 
+### 2026-10-23
+- El usuario aclaró que el módulo autorizado es `FrmProductos` y autorizó crear su ComboBox de
+  TipoProducto en tiempo de ejecución, sin editar el Designer. Se agregaron Entidad/Datos/
+  Negocio para consultar `dbo.ProductoOptico` con JOIN a `dbo.TipoProducto`, cargar el catálogo
+  existente por `CodigoTipoProducto`/`Nombre`, y mostrar 10 resultados por página desde
+  Presentación conservando el total de la consulta completa. Solo se conectaron eventos de
+  consulta, búsqueda local y navegación. El usuario confirmó compilación y pruebas correctas.
+  Los cambios iniciales de paginación en `FrmTiposDeProducto` se revirtieron al aclararse que
+  el módulo autorizado era `FrmProductos`; su Designer queda sin cambios.
+- Con autorización del 2026-10-23 se agregaron solo Agregar, Buscar, Editar y Eliminar para
+  `ProductoOptico`, sin cambiar la base de datos ni `FrmProductos.Designer.cs`. Datos usa
+  parámetros tipados; Buscar filtra por código (PK), nombre, descripción y marca. Negocio valida
+  el tipo FK, longitudes, precio y estado. Presentación usa `SelectedValue` para la FK, carga los
+  campos al seleccionar para editar, refresca el total después de cada operación y mantiene
+  paginación de 10 en Presentación sin alterar el total de resultados. El Skill
+  `04_CRUD_Relacional.md` no se encontró; se siguieron las guías actuales de capas. Pendiente:
+  compilación y pruebas manuales del usuario; esperar confirmación antes de cerrar.
+- El usuario informó que el control "Código Tipo Producto" mostraba la descripción en vez del
+  código. Se cambió el `DisplayMember` del ComboBox runtime a `CodigoTipoProducto`; el
+  `ValueMember` y `SelectedValue` siguen usando esa misma clave. Pendiente de prueba visual del
+  usuario; no se compiló.
+- Se inicia `FrmOrdenes` solo con consulta y carga de catálogos. Se agregaron capas Entidad,
+  Datos y Negocio de Orden, con consulta de Orden y detalle/producto mediante JOIN; la pantalla
+  pagina 10 filas desde Presentación y conserva el total de la consulta completa. Los ComboBox
+  runtime cargan Cliente (`NombreCompleto`/`CodigoCliente`), Sucursal (`Nombre`/`CodigoSucursal`)
+  y Producto (`Nombre`/`CodigoProducto`), sin editar `FrmOrdenes.Designer.cs`. Como no existían
+  capas de Sucursal, se crearon consultas sencillas de Entidad/Datos/Negocio únicamente para el
+  catálogo requerido; esas capas corresponden al módulo de Docente + Grupo. El usuario confirmó
+  el 2026-10-23 que la consulta y los catálogos funcionan correctamente. Esta etapa queda probada;
+  después autorizó las operaciones CRUD restantes.
+- Con autorización del 2026-10-23 se agregaron Agregar, Buscar, Editar y Eliminar para Ordenes.
+  Datos usa SQL parametrizado y transacciones para guardar/editar cabecera y detalle, y para
+  eliminar la orden junto con sus detalles; Negocio valida FK, estado, cantidad y montos.
+  Presentación carga los códigos FK desde `SelectedValue`, al seleccionar una fila coloca sus
+  valores en los controles, busca por PK/cliente/sucursal/estado, mantiene la paginación de 10
+  filas y el total del conjunto consultado. Editar cambia la cabecera y la línea seleccionada,
+  preservando otros detalles; eliminar quita todos los detalles de esa orden. No se modificaron
+  `FrmOrdenes.Designer.cs`, la base de datos ni otros módulos. Pendiente: el usuario compilará y
+  probará las operaciones; esperar su confirmación antes de cerrar.
+- Ante el reporte de que Eliminar no permite borrar productos, se consultó SQL Server en modo de
+  solo lectura: los cinco productos existentes están referenciados por `DetalleOrden`. El usuario
+  decidió conservar el bloqueo de la FK y pedir inactivación manual; se aclaró el mensaje SQL 547
+  para recomendar editar el producto y cambiarlo a Inactivo. No se modificaron datos ni esquema.
+
 ### 2026-10-10
 - Se subió todo a GitHub (`main`): pantallas de Diego y Luis, scripts PostgreSQL para
   Supabase y la lógica de las pantallas de Julio.

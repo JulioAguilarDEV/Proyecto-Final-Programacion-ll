@@ -52,7 +52,10 @@
     <Compile Include="ClienteNegocio.cs" />
     <Compile Include="ExamenVisualNegocio.cs" />
     <Compile Include="OptometristaNegocio.cs" />
+    <Compile Include="ProductoOpticoNegocio.cs" />
     <Compile Include="RecetaNegocio.cs" />
+    <Compile Include="OrdenNegocio.cs" />
+    <Compile Include="SucursalNegocio.cs" />
     <Compile Include="TipoProductoNegocio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

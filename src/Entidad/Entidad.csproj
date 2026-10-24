@@ -52,7 +52,10 @@
     <Compile Include="ClienteEntidad.cs" />
     <Compile Include="ExamenVisualEntidad.cs" />
     <Compile Include="OptometristaEntidad.cs" />
+    <Compile Include="ProductoOpticoEntidad.cs" />
     <Compile Include="RecetaEntidad.cs" />
+    <Compile Include="OrdenEntidad.cs" />
+    <Compile Include="SucursalEntidad.cs" />
     <Compile Include="TipoProductoEntidad.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
