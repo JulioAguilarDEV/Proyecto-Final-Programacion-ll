@@ -55,7 +55,7 @@
             // 
             this.txtContraseña.Location = new System.Drawing.Point(324, 134);
             this.txtContraseña.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtContraseña.MaxLength = 15;
+            this.txtContraseña.MaxLength = 100;
             this.txtContraseña.Name = "txtContraseña";
             this.txtContraseña.Size = new System.Drawing.Size(249, 30);
             this.txtContraseña.TabIndex = 23;
@@ -70,13 +70,12 @@
             this.lblNombreUsuario.Size = new System.Drawing.Size(191, 22);
             this.lblNombreUsuario.TabIndex = 20;
             this.lblNombreUsuario.Text = "Nombre De Usuario:";
-            this.lblNombreUsuario.Click += new System.EventHandler(this.lblNombreUsuario_Click);
             // 
             // txtNombreUsuario
             // 
             this.txtNombreUsuario.Location = new System.Drawing.Point(324, 63);
             this.txtNombreUsuario.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtNombreUsuario.MaxLength = 100;
+            this.txtNombreUsuario.MaxLength = 50;
             this.txtNombreUsuario.Name = "txtNombreUsuario";
             this.txtNombreUsuario.Size = new System.Drawing.Size(249, 30);
             this.txtNombreUsuario.TabIndex = 21;
@@ -124,6 +123,7 @@
             this.btnIngresar.Text = "Ingresar";
             this.btnIngresar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnIngresar.UseVisualStyleBackColor = true;
+            this.btnIngresar.Click += new System.EventHandler(this.btnIngresar_Click);
             // 
             // btnLimpiar
             // 
@@ -140,6 +140,7 @@
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // btnSalir
             // 
@@ -157,6 +158,7 @@
             this.btnSalir.Text = "Salir";
             this.btnSalir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // FrmLogin
             // 

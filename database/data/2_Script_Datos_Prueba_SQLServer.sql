@@ -17,6 +17,38 @@ INSERT INTO dbo.Usuario (CodigoSucursal, NombreCompleto, NombreUsuario, Contrase
     (3, 'Andrea Sofía Morales Cruz', 'amorales', 'Optica123', 'Optometrista', 'Activo'),
     (4, 'Kevin Estuardo Pérez Lima', 'kperez', 'Optica456', 'Operador', 'Inactivo');
 
+INSERT INTO dbo.Rol (NombreRol, Descripcion, Estado) VALUES
+    ('Administrador', 'Acceso completo a los módulos del sistema.', 'Activo'),
+    ('Operador', 'Acceso a clientes, citas y operaciones de productos.', 'Activo'),
+    ('Optometrista', 'Acceso a citas y módulos de atención visual.', 'Activo');
+
+INSERT INTO dbo.RolAcceso (CodigoRol, CodigoAcceso)
+SELECT r.CodigoRol, a.CodigoAcceso
+FROM dbo.Rol r
+CROSS JOIN (VALUES
+    ('Inicio'), ('Sucursales'), ('Usuarios'), ('Clientes'), ('Citas'),
+    ('Optometristas'), ('Examenes'), ('Recetas'), ('TiposProducto'),
+    ('Productos'), ('Ordenes'), ('Entregas')
+) a(CodigoAcceso)
+WHERE r.NombreRol = 'Administrador';
+
+INSERT INTO dbo.RolAcceso (CodigoRol, CodigoAcceso)
+SELECT r.CodigoRol, a.CodigoAcceso
+FROM dbo.Rol r
+CROSS JOIN (VALUES
+    ('Inicio'), ('Clientes'), ('Citas'), ('TiposProducto'), ('Productos'),
+    ('Ordenes'), ('Entregas')
+) a(CodigoAcceso)
+WHERE r.NombreRol = 'Operador';
+
+INSERT INTO dbo.RolAcceso (CodigoRol, CodigoAcceso)
+SELECT r.CodigoRol, a.CodigoAcceso
+FROM dbo.Rol r
+CROSS JOIN (VALUES
+    ('Inicio'), ('Citas'), ('Optometristas'), ('Examenes'), ('Recetas')
+) a(CodigoAcceso)
+WHERE r.NombreRol = 'Optometrista';
+
 
 INSERT INTO dbo.Cliente (Nombres, Apellidos, DPI, FechaNacimiento, Telefono, Correo, Direccion, Estado) VALUES
     ('María Fernanda', 'López Herrera', '2547896320601', '1995-03-12', '50123456', 'maria.lopez@example.com', 'Barrio El Centro, Cuilapa', 'Activo'),

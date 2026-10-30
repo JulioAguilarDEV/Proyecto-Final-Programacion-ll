@@ -55,8 +55,10 @@
     <Compile Include="ProductoOpticoNegocio.cs" />
     <Compile Include="RecetaNegocio.cs" />
     <Compile Include="OrdenNegocio.cs" />
+    <Compile Include="RolNegocio.cs" />
     <Compile Include="SucursalNegocio.cs" />
     <Compile Include="TipoProductoNegocio.cs" />
+    <Compile Include="UsuarioNegocio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

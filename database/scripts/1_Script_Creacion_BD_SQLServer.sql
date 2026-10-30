@@ -31,6 +31,22 @@ CREATE TABLE dbo.Usuario (
     FOREIGN KEY (CodigoSucursal) REFERENCES dbo.Sucursal (CodigoSucursal)
 );
 
+-- Catálogo de roles y accesos configurables para el menú
+CREATE TABLE dbo.Rol (
+    CodigoRol INT IDENTITY(1,1) PRIMARY KEY,
+    NombreRol VARCHAR(30) NOT NULL UNIQUE,
+    Descripcion VARCHAR(150) NOT NULL,
+    Estado VARCHAR(20) NOT NULL
+);
+
+CREATE TABLE dbo.RolAcceso (
+    CodigoRol INT NOT NULL,
+    CodigoAcceso VARCHAR(30) NOT NULL,
+    CONSTRAINT PK_RolAcceso PRIMARY KEY (CodigoRol, CodigoAcceso),
+    CONSTRAINT FK_RolAcceso_Rol FOREIGN KEY (CodigoRol)
+        REFERENCES dbo.Rol (CodigoRol) ON DELETE CASCADE
+);
+
 
 -- Tabla Cliente
 CREATE TABLE dbo.Cliente (

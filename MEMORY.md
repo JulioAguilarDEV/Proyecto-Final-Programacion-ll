@@ -13,7 +13,9 @@ empezar y lo actualiza al terminar cada tarea (ver `AGENTS.md`). Lo más recient
 | FrmExamenVisual | ✅ | ✅ probada con la BD | Julio |
 | FrmReceta | ✅ | ✅ probada con la BD | Julio |
 | Sucursales | ⏳ | ⏳ | Docente + Grupo |
-| Usuarios, Clientes, Citas, Login | ⏳ | ⏳ | Diego |
+| Login | ✅ | ✅ autenticación y permisos de menú | Diego |
+| Usuarios, Clientes, Citas | ⏳ | ⏳ | Diego |
+| Roles y accesos | ✅ | ✅ CRUD de roles y configuración de menú | Julio |
 | Tipos de Producto, Productos Ópticos, Órdenes, Panel de Acceso | ⏳ | ⏳ | Luis |
 | Entregas | ⏳ | ⏳ | (sin asignar en la distribución) |
 
@@ -50,6 +52,47 @@ empezar y lo actualiza al terminar cada tarea (ver `AGENTS.md`). Lo más recient
   `[Browsable(false)]`; con ese atributo el ComboBox muestra `Entidad.ClienteEntidad`.
 
 ## Historial
+
+### 2026-10-24
+- Con autorización del usuario, se agregaron `dbo.Rol` y `dbo.RolAcceso` con los roles
+  Administrador, Operador y Optometrista. Se aplicó `database/scripts/2_Script_Roles_SQLServer.sql`
+  a la BD SQL Server ya existente, dentro de una transacción; la consulta de verificación
+  confirmó 12 accesos iniciales para Administrador, 7 para Operador y 5 para Optometrista.
+- Se agregaron las capas Entidad/Datos/Negocio para roles y autenticación, el formulario
+  `FrmRoles` para CRUD y configuración de permisos, y se conectó el Login al inicio de la
+  aplicación. `FrmPrincipal` oculta y bloquea opciones no asignadas; la pantalla de roles queda
+  reservada a Administrador. El acceso a Inicio se mantiene obligatorio; Administrador no se
+  puede desactivar, renombrar ni eliminar para evitar perder la administración.
+- Se actualizaron los scripts de creación y datos de SQL Server/PostgreSQL. El build Debug
+  terminó correctamente con MSBuild de Visual Studio 2022. Pendiente: pruebas manuales de
+  inicio de sesión y edición de permisos en la interfaz.
+
+### 2026-10-27
+- Se corrigió el recorte de pantallas incrustadas al abrirlas desde el menú principal. La ventana
+  principal inicia maximizada y conserva el tamaño nativo de diseño de cada formulario; se quitó
+  el escalado proporcional aplicado al incrustarlos, que reducía el ancho de botones e iconos y
+  cortaba sus textos. El menú compacto centra iconos, oculta textos que no caben, muestra/oculta
+  la identidad de sesión y mantiene el botón Roles sobre el panel de usuario. Build Debug exitoso.
+- Tras confirmarse que Optometristas aún no quedaba visible correctamente y que los botones seguían
+  recortados, se reforzó el alojamiento: el menú aplica `AutoScaleMode.None`, fuerza el formulario
+  activo al frente del panel y ajusta los `IconButton` de los CRUD a un ancho mínimo de 150,
+  tipografía de 9 pt e icono de 20 px. El formulario principal limita maximización al área de
+  trabajo de Windows para evitar ocultar la fila inferior bajo la barra de tareas. Build Debug
+  exitoso; el usuario debe cerrar la instancia anterior y volver a ejecutar el binario actualizado.
+- Con autorización del usuario, el nombre completo y rol de la sesión ahora se muestran en el
+  encabezado superior de las pantallas CRUD de Usuarios y Roles. FrmPrincipal pasa el usuario
+  autenticado a ambas pantallas; FrmUsuarios reutiliza sus paneles de encabezado en tiempo de
+  ejecución y FrmRoles agrega el indicador sin editar manualmente ningún Designer.
+- Pendiente: validación visual manual de ambos encabezados.
+- Se actualizó el Login por código en `FrmLogin.cs`, sin tocar `FrmLogin.Designer.cs`: fondo azul
+  claro, tarjeta blanca, título y textos de ayuda, campos con mejor jerarquía y botones con
+  colores de acción y estados hover. Se conservó la autenticación y navegación existentes.
+  Build Debug exitoso; pendiente validar visualmente en ejecución.
+- Se documentaron con comentarios sencillos las propiedades y métodos de las capas de Entidad,
+  Datos y Negocio para Login/Roles. El panel superior de `FrmPrincipal` y el panel de usuario
+  muestran ahora el nombre completo y el rol de la sesión. La consulta de Login compara la
+  contraseña existente con parámetro SQL y no devuelve la contraseña en la entidad de sesión;
+  no se agregó cifrado ni se modificó App.config.
 
 ### 2026-10-23
 - El usuario aclaró que el módulo autorizado es `FrmProductos` y autorizó crear su ComboBox de

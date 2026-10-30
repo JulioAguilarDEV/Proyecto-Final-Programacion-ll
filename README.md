@@ -49,8 +49,14 @@ ProyectoFinal_SistemaOptica\
 1. **Base de datos (SQL Server):** ejecutar en SSMS, en este orden:
    1. `database/scripts/1_Script_Creacion_BD_SQLServer.sql`
    2. `database/data/2_Script_Datos_Prueba_SQLServer.sql`
+   - En una base existente, ejecutar `database/scripts/2_Script_Roles_SQLServer.sql`
+     para crear el catálogo de roles y sus accesos iniciales.
 2. **Conexión:** revisar la cadena `ConexionSQLServer` en `src/Presentacion/App.config`
    (servidor, usuario y contraseña).
 3. **Visual Studio:** abrir `src/Sistema Optica.slnx`, clic derecho en el proyecto
    **Presentacion** → *Establecer como proyecto de inicio*, y presionar **F5**.
    Los paquetes NuGet se restauran solos al compilar.
+
+Al iniciar la aplicación se solicita usuario y contraseña. Los accesos iniciales de
+Administrador, Operador y Optometrista se pueden ajustar desde **Roles y Accesos**,
+disponible únicamente para Administrador.

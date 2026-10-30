@@ -56,8 +56,10 @@
     <Compile Include="ProductoOpticoDatos.cs" />
     <Compile Include="RecetaDatos.cs" />
     <Compile Include="OrdenDatos.cs" />
+    <Compile Include="RolDatos.cs" />
     <Compile Include="SucursalDatos.cs" />
     <Compile Include="TipoProductoDatos.cs" />
+    <Compile Include="UsuarioDatos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
