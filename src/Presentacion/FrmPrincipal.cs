@@ -187,9 +187,6 @@ namespace Presentacion
                 formularioAnterior.Close();
             }
 
-            formulario.AutoScaleMode = AutoScaleMode.None;
-            MtdAjustarBotonesFormulario(formulario);
-
             // La pantalla se muestra dentro del panel, sin borde
             formulario.TopLevel = false;
             formulario.FormBorderStyle = FormBorderStyle.None;
@@ -202,28 +199,6 @@ namespace Presentacion
             formulario.Show();
 
             lblTituloPantalla.Text = titulo;
-        }
-
-        // Da más espacio a los botones para que el icono no quite espacio al texto.
-        private void MtdAjustarBotonesFormulario(Control control)
-        {
-            foreach (Control elemento in control.Controls)
-            {
-                if (elemento is IconButton)
-                {
-                    IconButton boton = (IconButton)elemento;
-                    boton.AutoSize = false;
-                    boton.Width = Math.Max(boton.Width, 150);
-                    boton.Font = new Font("Segoe UI", 9F);
-                    boton.IconSize = 20;
-                    boton.TextImageRelation = TextImageRelation.ImageBeforeText;
-                }
-
-                if (elemento.HasChildren)
-                {
-                    MtdAjustarBotonesFormulario(elemento);
-                }
-            }
         }
 
         // Mantiene el botón de Roles sobre el panel de usuario y adapta el menú compacto.
