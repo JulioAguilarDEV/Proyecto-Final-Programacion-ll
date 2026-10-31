@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entidad;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,42 @@ namespace Presentacion
         public FrmUsuarios()
         {
             InitializeComponent();
+        }
+
+        // Muestra en ambos encabezados el usuario y el rol de la sesión.
+        public FrmUsuarios(UsuarioEntidad usuario) : this()
+        {
+            MtdMostrarUsuarioConectado(usuario);
+        }
+
+        // Agrega el texto de sesión al panel superior existente.
+        private void MtdMostrarUsuarioConectado(UsuarioEntidad usuario)
+        {
+            if (usuario == null)
+            {
+                return;
+            }
+
+            string texto = "Conectado: " + usuario.NombreCompleto + " | Rol: " + usuario.Rol;
+            MtdAgregarUsuarioAlEncabezado(PanelEncabezado, texto);
+            MtdAgregarUsuarioAlEncabezado(PanelEncabezadoGestionar, texto);
+        }
+
+        // Presenta la identidad de la sesión dentro de un panel de encabezado.
+        private void MtdAgregarUsuarioAlEncabezado(Panel panel, string texto)
+        {
+            panel.Height = 36;
+            panel.BackColor = System.Drawing.Color.FromArgb(253, 252, 250);
+            panel.Controls.Add(new Label
+            {
+                Text = texto,
+                Dock = DockStyle.Right,
+                Width = 480,
+                TextAlign = System.Drawing.ContentAlignment.MiddleRight,
+                ForeColor = System.Drawing.Color.FromArgb(3, 47, 103),
+                Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold),
+                AutoEllipsis = true
+            });
         }
 
         private void grpDatos_Enter(object sender, EventArgs e)

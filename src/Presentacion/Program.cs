@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Entidad;
 
 namespace Presentacion
 {
@@ -17,10 +18,14 @@ namespace Presentacion
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            // Formulario con el que inicia el sistema.
-            // TEMPORAL: inicia en la ventana principal (menú) mientras se crea el Login.
-            // Cuando exista el Login se cambia por: Application.Run(new FrmLogin());
-            Application.Run(new FrmPrincipal());
+            using (FrmLogin formularioLogin = new FrmLogin())
+            {
+                if (formularioLogin.ShowDialog() == DialogResult.OK)
+                {
+                    UsuarioEntidad usuario = formularioLogin.UsuarioAutenticado;
+                    Application.Run(new FrmPrincipal(usuario));
+                }
+            }
         }
     }
 }

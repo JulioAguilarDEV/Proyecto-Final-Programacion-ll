@@ -23,6 +23,21 @@ CREATE TABLE public.Usuario (
     FOREIGN KEY (CodigoSucursal) REFERENCES public.Sucursal (CodigoSucursal)
 );
 
+-- Catálogo de roles y accesos configurables para el menú
+CREATE TABLE public.rol (
+    CodigoRol SERIAL PRIMARY KEY,
+    NombreRol VARCHAR(30) NOT NULL UNIQUE,
+    Descripcion VARCHAR(150) NOT NULL,
+    Estado VARCHAR(20) NOT NULL
+);
+
+CREATE TABLE public.rolacceso (
+    CodigoRol INT NOT NULL,
+    CodigoAcceso VARCHAR(30) NOT NULL,
+    PRIMARY KEY (CodigoRol, CodigoAcceso),
+    FOREIGN KEY (CodigoRol) REFERENCES public.rol (CodigoRol) ON DELETE CASCADE
+);
+
 
 -- Tabla Cliente
 CREATE TABLE public.Cliente (
