@@ -29,7 +29,9 @@ empezar y lo actualiza al terminar cada tarea (ver `AGENTS.md`). Lo más recient
   colores del logo: marino 3,47,103 (también fondo del menú); gris 101,114,122 (botón
   seleccionado del menú); azul del iris 2,66,125 (hover del menú); fondo 253,252,250.
 - **Menú principal:** ventana sin borde con menú lateral gris, logo arriba y panel contenedor
-  donde se abren todas las pantallas. Inicia en `FrmPrincipal` hasta que exista el Login.
+  donde se abren todas las pantallas. El sistema inicia en `FrmLogin` y abre `FrmPrincipal`
+  con el usuario autenticado. `FrmPrincipal` **no cambia el diseño** de las pantallas: solo
+  las pone sin borde y con `Dock = Fill` para que se adapten al panel.
 - **Dashboard:** solo el texto del logo translúcido (sin el ojo, porque el ojo ya está en el
   menú) y "Bienvenidos" (el usuario no quiere gráficas ni tarjetas). El diseño con tarjetas y gráficas quedó guardado como Diseño B en
   `ia/skills/crear-pantalla/03_DISENO_DASHBOARD.md`. Ojo: la rúbrica evalúa que el Dashboard
@@ -52,6 +54,21 @@ empezar y lo actualiza al terminar cada tarea (ver `AGENTS.md`). Lo más recient
   `[Browsable(false)]`; con ese atributo el ComboBox muestra `Entidad.ClienteEntidad`.
 
 ## Historial
+
+### 2026-10-30
+- Se integró la rama `future/Login_Luis` (Login, roles y CRUD relacionales de Órdenes y
+  Productos) en `main`, sin conflictos. Todas las ramas remotas quedaron dentro de `main`.
+- **Cada integrante debe correr `database/scripts/2_Script_Roles_SQLServer.sql` en su BD**:
+  sin las tablas `Rol` y `RolAcceso` el Login no deja entrar a nadie.
+- `FrmPrincipal` cambiaba los botones de todas las pantallas al abrirlas (letra Segoe UI 9,
+  ícono 20, ancho 150) y apagaba `AutoScaleMode`. Se quitó: ahora las pantallas se ven igual
+  que en su diseño y solo se estiran según su `Anchor`/`Dock`.
+- Probado contra `OpticaGrupo8`: login por rol, menú según accesos, todas las pantallas del
+  menú abren sin errores y CRUD de Productos, Órdenes y Roles (los registros de prueba se
+  eliminaron y se regresó el IDENTITY). Compila sin errores ni advertencias.
+- Se agregaron los archivos del agente Claude de la Guía 01: `CLAUDE.md`,
+  `ESTADO_DOCUMENTOS.md`, `ia/skills/01_…` a `11_…`, `docs/COMANDOS_RAPIDOS.md`,
+  `database/CONEXION_DATABASE.md` y `database/01_Backup_Base_Datos.sql`.
 
 ### 2026-10-24
 - Con autorización del usuario, se agregaron `dbo.Rol` y `dbo.RolAcceso` con los roles
